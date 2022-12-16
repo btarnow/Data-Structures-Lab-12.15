@@ -1,3 +1,13 @@
+##Lab Directions: 
+#https://fellowship.hackbrightacademy.com/materials/serft15/exercises/data-structures/ 
+
+"""Data structure is a generic term used to describe a scheme for organizing, storing, and 
+managing data. Examples of data structures include strings, lists, sets, tuples, and files.
+
+In this exercise, you’ll continue to practice working with the data structures and data 
+types we’ve encountered so far but, this time, we’re increasing the complexity of the 
+data by nesting data structures."""
+
 """Functions to parse a file containing villager data."""
 
 
