@@ -10,24 +10,16 @@ def all_species(filename):
     Return:
         - set[str]: a set of strings
     """
-    words = filename.split("|")
-
-    species = set()
-
-
-    words = line.split("|")
-
-        melon_name = words[0]
-        count_of_melons = words[1]
-        total_cost = words[2]
-
-
-
-
     # TODO: replace this with your code
+    species = set()
+    for line in open(filename):
+        words = line.split("|")
+
+        species.add(words[1])
 
     return species
-
+#when you call another file as an argument, put it in " "! 
+#print(all_species("villagers.csv"))
 
 def get_villagers_by_species(filename, search_string="All"):
     """Return a list of villagers' names by species.
@@ -40,12 +32,26 @@ def get_villagers_by_species(filename, search_string="All"):
         - list[str]: a list of names
     """
 
+    #if species name is the argument search_string
+            #find all of the villagers who are that species
+                #append them to our list villagers
+            #return a sorted list of villagers
+
+    
     villagers = []
 
-    # TODO: replace this with your code
+
+    for line in open(filename):
+        words = line.split("|")
+    
+        if words[1] == search_string:
+            
+            villagers.append(words[0])
+
 
     return sorted(villagers)
-
+#print(get_villagers_by_species("villagers.csv"))
+print(get_villagers_by_species("villagers.csv", "Goat"))
 
 def all_names_by_hobby(filename):
     """Return a list of lists containing villagers' names, grouped by hobby.
