@@ -10,7 +10,6 @@ def all_species(filename):
     Return:
         - set[str]: a set of strings
     """
-    # TODO: replace this with your code
     species = set()
     for line in open(filename):
         words = line.split("|")
@@ -18,6 +17,7 @@ def all_species(filename):
         species.add(words[1])
 
     return species
+
 #when you call another file as an argument, put it in " "! 
 #print(all_species("villagers.csv"))
 
@@ -36,22 +36,24 @@ def get_villagers_by_species(filename, search_string="All"):
             #find all of the villagers who are that species
                 #append them to our list villagers
             #return a sorted list of villagers
-
-    
+#create an empty list called villagers that can be returned 
     villagers = []
 
-
+#iterate through the villagers.csv file line by line 
     for line in open(filename):
+        #split the string in each line of the villagers.csv into a list that can be iterated
         words = line.split("|")
     
+        #if the species name (which is index 1 in our new list words), is equal to the argument...
+        #...of the string search put in in calling the function:
         if words[1] == search_string:
-            
+            #append the name of the villager (index 0 in the new list words) to the villagers list.
             villagers.append(words[0])
 
-
+    #return the list of villagers sorted in alphabetical order. 
     return sorted(villagers)
-#print(get_villagers_by_species("villagers.csv"))
-print(get_villagers_by_species("villagers.csv", "Goat"))
+
+# print(get_villagers_by_species("villagers.csv", "Goat"))
 
 def all_names_by_hobby(filename):
     """Return a list of lists containing villagers' names, grouped by hobby.
@@ -63,10 +65,43 @@ def all_names_by_hobby(filename):
         - list[list[str]]: a list of lists containing names
     """
 
-    # TODO: replace this with your code
+    # create an empty list for each hobby: 
+    fitness = []
+    nature = []
+    education = []
+    music = []
+    fashion = []
+    play = []
 
-    return []
+#   iterate through the villagers.csv file line by line 
+    for line in open(filename):
+        #split the string in each line of the villagers.csv into a list that can be iterated
+        words = line.split("|")
+        hobby= words[3]
+        name = words[0]
 
+        if hobby == "Fitness":
+            fitness.append(name)
+        elif hobby == "Nature":
+            nature.append(name)
+        elif hobby == "Education":
+            education.append(name)
+        elif hobby == "Music":
+            music.append(name)
+        elif hobby == "Fashion":
+            fashion.append(name)
+        elif hobby == "Play":
+            play.append(name)
+
+    return [
+        sorted(fitness),
+        sorted(nature),
+        sorted(education),
+        sorted(music),
+        sorted(fashion),
+        sorted(play),
+        ]
+print(all_names_by_hobby("villagers.csv"))
 
 def all_data(filename):
     """Return all the data in a file.
